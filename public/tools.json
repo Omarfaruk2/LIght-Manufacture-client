@@ -1,0 +1,50 @@
+[
+    {
+        "minQuantity": 100,
+        "availableQuantity": 500,
+        "img": "https://waltonbd.com/image/cache/catalog/led-light/indoor/domestic-general-lamps/4-led-215x215.jpg",
+        "price": 120,
+        "description": "Light bulb is marked as one of the most important invention in the history. With its invention came the opportunity for upgrading it with the help of modern technology",
+        "name": "INDOOR LIGHT"
+    },
+    {
+        "minQuantity": 200,
+        "availableQuantity": 6000,
+        "img": "https://waltonbd.com/image/cache/catalog/led-light/outdoor/flood-light/category-image-215x215.jpg",
+        "price": 500,
+        "description": "The old days where you had filament bulbs to help light up your house, office, or any hospitality environment is now long gone thanks to LED light in Banglades",
+        "name": "OUTDOOR LIGHT"
+    },
+    {
+        "minQuantity": 200,
+        "availableQuantity": 600,
+        "img": "https://waltonbd.com/image/cache/catalog/led-light/smart-lighting/smart-light-combo-215x215.jpg",
+        "price": 95,
+        "description": "You don’t have to worry about the dim light and the heat that the filament bulbs use to give. With LED lights you will have no such issues rather, more light with no heat. Not to forget that LED lights are your wallet",
+        "name": "SMART LIGHT"
+    },
+    {
+        "minQuantity": 60,
+        "availableQuantity": 400,
+        "img": "https://waltonbd.com/image/cache/catalog/led-light/portable/portable-215x215.png",
+        "price": 60,
+        "description": "Walton LED light price in Bangladesh is very much affordable by everyone. We give you the best LED price in BD that you will hardly find with any other LED light in Bangladesh.",
+        "name": "PORTABLE"
+    },
+    {
+        "minQuantity": 60,
+        "availableQuantity": 680,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVrY4y9BJCxHra1aX3kvts3queILdobBCn-A&usqp=CAU",
+        "price": 60,
+        "description": "LED stands for light emitting diode. LED lighting products produce light up to 90% more efficiently than incandescent light bulbs. How do they work? An electrical current passes through a microchip,",
+        "name": "CHARGING LIGHT"
+    },
+    {
+        "minQuantity": 64,
+        "availableQuantity": 690,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl2SH1Jx4dz5JjQmBsHOcHMafbdmqT-_vqSA&usqp=CAU",
+        "price": 20,
+        "description": "LED lighting differs from incandescent and fluorescent in several ways. When designed well, LED lighting is more efficient, versatile, and lasts longer.",
+        "name": "WITH CABLE"
+    }
+]

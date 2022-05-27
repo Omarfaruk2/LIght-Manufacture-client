@@ -1,14 +1,20 @@
 
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
+import Footer from './Pages/Share/Footer'
+import Navbar from './Pages/Share/Navbar'
 
 function App() {
   return (
-    <div className="">
-      <h2 className='text-5xl text-center'>HEllo</h2>
-      <button class="btn btn-outline">Button</button>
-      <button class="btn btn-outline btn-primary">Button</button>
-      <button class="btn btn-outline btn-secondary">Button</button>
-      <button class="btn btn-outline btn-accent">Button</button>
+    <div>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer></Footer>
     </div>
   )
 }
