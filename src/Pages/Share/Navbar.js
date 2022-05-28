@@ -4,10 +4,11 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Spiner from './Spiner'
+import { useNavigate } from 'react-router'
 
 const Navbar = () => {
     const [user, loading] = useAuthState(auth)
-
+    const navigate = useNavigate()
 
     if (loading) {
         return <Spiner></Spiner>
@@ -46,7 +47,14 @@ const Navbar = () => {
             </li>
         </>
 
+    const handleprofile = () => {
+        navigate("/dashboard/myProfile")
 
+    }
+    const handleCompanyName = () => {
+        navigate("/")
+
+    }
 
 
     return (
@@ -60,7 +68,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <h3 className="btn btn-ghost normal-case text-xl">LED PRODUCTION</h3>
+                <h3 onClick={handleCompanyName} className="btn btn-ghost normal-case text-xl">LED PRODUCTION</h3>
             </div>
             <div className="navbar-center hidden lg:flex">
 
@@ -89,14 +97,14 @@ const Navbar = () => {
                     </div>
                 </label>
                 <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                    <li>
+                    <li onClick={handleprofile}>
                         <a className="justify-between">
                             Profile
                             <span className="badge">New</span>
                         </a>
                     </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
+
+                    <li><button onClick={logout} className='btn btn-xs btn-ghost pb-6'>Logout</button></li>
                 </ul>
             </div>
         </div>

@@ -115,7 +115,7 @@ const Login = () => {
                     <div className="divider">OR</div>
 
                     {/* Google Login */}
-                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue With Google</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-primary">Continue With Google</button>
                 </div >
             </div >
         </div >

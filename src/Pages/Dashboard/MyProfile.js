@@ -7,7 +7,7 @@ const MyProfile = () => {
     const [user] = useAuthState(auth)
 
     const { photoURL, displayName, email, address } = user
-    console.log(user)
+    // console.log(user)
 
 
     const handleUpdateProfile = (event) => {
@@ -24,6 +24,31 @@ const MyProfile = () => {
             phone: phone
         }
         console.log(data)
+
+
+        fetch(`http://localhost:5000/users/${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+
+
+                // if (data.success) {
+                //     toast(`Appoinment is set`)
+
+                // }
+                // else {
+                //     console.log(data)
+                //     toast.error(`You already have a Appoinment on, ${data?.booking?.date} at ${data?.booking?.slot}`)
+                // }
+
+            })
+
 
     }
 
@@ -50,11 +75,14 @@ const MyProfile = () => {
                         <div className="card-body mx-auto">
                             <h2 className="card-title">Name: {displayName}</h2>
                             <h2 className="card-title">Email: {email}</h2>
-                            {
-                                address && <> <h2 className="card-title">Address: </h2>
-                                    <h2 className="card-title">Phone: </h2></>
-                            }
+
+                            {/* {
+                                address && <> <h2 className="card-title">Address:{address} </h2>
+                                    <h2 className="card-title">Phone:{} </h2></>
+                            } */}
+
                             {/* Address */}
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Your Address</span>

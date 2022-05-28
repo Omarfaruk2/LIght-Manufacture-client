@@ -27,7 +27,7 @@ const Signin = () => {
 
 
     if (guser || user) {
-        navigate("/appoinment")
+        navigate("/")
     }
 
     const onSubmit = async data => {

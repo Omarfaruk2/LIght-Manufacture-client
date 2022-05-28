@@ -26,7 +26,7 @@ const DashboardReview = () => {
         const review = event.target.review.value
 
         const data = {
-            review: review,
+            description: review,
             photoURL: photoURL,
             email: email,
             name: displayName
