@@ -3,9 +3,11 @@ import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import './App.css'
 import Blogs from './Pages/Blogs/Blogs'
+import AddProducts from './Pages/Dashboard/AddProducts'
 import Dashboard from './Pages/Dashboard/Dashboard'
 import DashboardReview from './Pages/Dashboard/DashboardReview'
 import ExtraDshboard from './Pages/Dashboard/ExtraDshboard'
+import ManageProducts from './Pages/Dashboard/ManageProducts'
 import MyOrder from './Pages/Dashboard/MyOrder'
 import MyProfile from './Pages/Dashboard/MyProfile'
 // import UpdateProfile from './Pages/Dashboard/UpdateProfile'
@@ -17,6 +19,7 @@ import ToolsDetails from './Pages/Home/ToolsDetails'
 import Login from './Pages/Login/Login'
 import RequireAuth from './Pages/Login/RequireAuth'
 import Signin from './Pages/Login/Signin'
+import Notfound from './Pages/Notfound/Notfound'
 import Footer from './Pages/Share/Footer'
 // import Footer from './Pages/Share/Footer'
 import Navbar from './Pages/Share/Navbar'
@@ -40,10 +43,16 @@ function App() {
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='review' element={<DashboardReview></DashboardReview>}></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='addProducts' element={<AddProducts></AddProducts>}></Route>
+          <Route path='manageProdcts' element={<ManageProducts></ManageProducts>}></Route>
         </Route>
 
-        <Route path="/tool/:id" element={<ToolsDetails />} />
+        <Route path="/tool/:id" element={
+          <RequireAuth>  <ToolsDetails /></RequireAuth>
 
+
+        } />
+        <Route path='*' element={<Notfound></Notfound>} ></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

@@ -1,14 +1,30 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SingleTool = ({ tool }) => {
+const AdminMangeProdicts = ({ tool, setTools, tools }) => {
 
     const navigate = useNavigate()
     const { name, description, price, img, availableQuantity, minQuantity, _id } = tool
 
-    const handleOrder = (id) => {
-        // console.log(id, "id paisi")
-        navigate(`/tool/${id}`)
+
+    const handledelete = (id) => {
+
+
+        const proceed = window.confirm("Are you sure for delete")
+        if (proceed) {
+            const url = `http://localhost:5000//tool/${id}`
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = tools.filter(tool => tool._id !== id)
+                    console.log(remaining)
+                    setTools(remaining)
+
+                })
+        }
 
     }
 
@@ -26,12 +42,13 @@ const SingleTool = ({ tool }) => {
                     <p>{description}</p>
 
                     <div className="card-actions">
-                        <button onClick={() => handleOrder(_id)} className="btn btn-primary">Order Now</button>
+                        <button onClick={() => handledelete(_id)} className="btn btn-primary">Delete Now</button>
                     </div>
                 </div>
             </div>
         </div>
     )
+
 }
 
-export default SingleTool
+export default AdminMangeProdicts

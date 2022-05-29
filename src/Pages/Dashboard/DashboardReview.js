@@ -23,14 +23,25 @@ const DashboardReview = () => {
 
     const handlePurches = (event) => {
         event.preventDefault()
+
+
         const review = event.target.review.value
+        const rating = event.target.rating.value
+
+        if (parseInt(rating) > 5) {
+            return window.confirm("Your rating must be 1 to 5")
+
+        }
+
 
         const data = {
             description: review,
             photoURL: photoURL,
             email: email,
-            name: displayName
+            name: displayName,
+            rating: rating
         }
+        console.log(data)
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
@@ -51,12 +62,13 @@ const DashboardReview = () => {
 
             })
         console.log(data)
-        console.log(user)
+        // console.log(user)
 
 
 
 
         event.target.review.value = ""
+        event.target.rating.value = ""
     }
 
 
@@ -66,7 +78,7 @@ const DashboardReview = () => {
             <form onSubmit={handlePurches} className="card flex-shrink-0 w-full mx-auto max-w-sm shadow-2xl bg-base-100">
                 <div>
                     <div className="card-body ">
-                        {/* Your name*/}
+                        {/* Your Review*/}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Your Review</span>
@@ -74,6 +86,18 @@ const DashboardReview = () => {
                             <input type="text" name='review' placeholder="Review" className="input input-bordered" />
                         </div>
                         {/*  */}
+                        {/* Your Rating*/}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Your Rating</span>
+                            </label>
+                            <input type="number" name='rating' placeholder="raing" className="input input-bordered" />
+                        </div>
+                        {/*  */}
+
+
+
+
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Submit Review" />
                         </div>

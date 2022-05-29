@@ -30,6 +30,7 @@ const Orderfrom = ({ Details }) => {
 
 
     return (
+
         <div className="card w-full sm:w-96 bg-gradient-to-r from-sky-600 to-indigo-500 text-gray-200  shadow-xl shadow-secondary">
             <div className="card-body">
                 <h2 className="card-title justify-center">Delivery address</h2>
