@@ -26,7 +26,7 @@ const MyProfile = () => {
         console.log(data)
 
 
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://evening-shelf-42427.herokuapp.com/users/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

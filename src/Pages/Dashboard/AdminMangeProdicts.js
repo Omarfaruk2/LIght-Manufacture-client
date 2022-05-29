@@ -12,7 +12,7 @@ const AdminMangeProdicts = ({ tool, setTools, tools }) => {
 
         const proceed = window.confirm("Are you sure for delete")
         if (proceed) {
-            const url = `http://localhost:5000//tool/${id}`
+            const url = `https://evening-shelf-42427.herokuapp.com/tool/${id}`
             fetch(url, {
                 method: "DELETE",
             })

@@ -114,7 +114,7 @@ const Login = () => {
                         </div>
                         {SingINerroMessage}
 
-                        <input className='btn text-white w-full max-w-xs' type="submit" value="Login" />
+                        <input className='btn text-white w-full bg-primary max-w-xs' type="submit" value="Login" />
                     </form>
 
                     <p>New to Doctors Protal? <Link className="text-primary" to="/singup">Creat new account</Link></p>

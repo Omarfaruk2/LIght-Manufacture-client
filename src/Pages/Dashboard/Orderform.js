@@ -17,7 +17,7 @@ const Orderfrom = ({ Details }) => {
 
     const { data: person, isLoading } = useQuery(['person', email],
 
-        () => fetch(`http://localhost:5000/user/${email}`)
+        () => fetch(`https://evening-shelf-42427.herokuapp.com/user/${email}`)
             .then(res => res.json()))
 
     if (isLoading) {

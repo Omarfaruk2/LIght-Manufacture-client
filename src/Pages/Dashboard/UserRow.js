@@ -5,17 +5,17 @@ const UserRow = ({ user }) => {
     const { email, role } = user
 
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/newusers/admin/${email}`, {
+        fetch(`https://evening-shelf-42427.herokuapp.com/newusers/admin/${email}`, {
             method: 'PUT',
             headers: {
-                authrization: `Bearer ${localStorage.getItem("accessToken")}`
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`
+
             }
         })
             .then(res => res.json())
             .then(data => {
-                if (data) {
-                    toast.success(`SuccessFully Made an Admin`)
-                }
+                toast.success(`SuccessFully Made an Admin`)
+
             })
     }
 

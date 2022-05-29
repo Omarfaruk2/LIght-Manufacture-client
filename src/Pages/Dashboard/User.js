@@ -11,7 +11,7 @@ const User = () => {
 
     const [users, setUser] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/newusers", {
+        fetch("https://evening-shelf-42427.herokuapp.com/newusers", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -28,15 +28,15 @@ const User = () => {
     return (
         <div>
             <h2>All User : {users?.length}</h2>
-            <div class="overflow-x-auto">
+            <div className="overflow-x-auto">
 
-                <table class="table w-full">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>User Email</th>
+                            <th>Admin Power</th>
+                            <th>Delecte User</th>
                         </tr>
                     </thead>
                     <tbody>

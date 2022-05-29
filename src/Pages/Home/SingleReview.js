@@ -17,8 +17,8 @@ const SingleReview = ({ review }) => {
 
 
 
-                        <div class="rating d-flex items-center">
-                            <h2 className='text-2xl'>{rating}</h2>  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <div className="rating d-flex items-center">
+                            <h2 className='text-2xl'>{rating}</h2>  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ const AddProducts = () => {
     const onSubmit = (data) => {
 
         console.log(data)
-        const url = "http://localhost:5000/tool"
+        const url = "https://evening-shelf-42427.herokuapp.com/tool"
         fetch(url, {
             method: 'POST',
             headers: {

@@ -75,7 +75,9 @@ One route will be Blogs. This will be a open route (anyone visiting your website
 
 14.6 What is a unit test? Why should write unit tests?
 
-Create My Portfolio route. In this route, you will have your name, email address, educational background, list of technologies or skills you have as a web developer. Add links of three of your projects (live website links). Adding descriptions or screenshots of your projects are optional.
+Create My Portfolio route.
+
+ In this route, you will have your name, email address, educational background, list of technologies or skills you have as a web developer. Add links of three of your projects (live website links). Adding descriptions or screenshots of your projects are optional.
 
 Create a meaningful 404 page (not found page). Add a meaningful image on the 404 page.
 

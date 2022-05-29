@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/order/${user?.email}`, {
+        fetch(`https://evening-shelf-42427.herokuapp.com/order/${user?.email}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -34,15 +34,16 @@ const MyOrder = () => {
                 setOtders(data)
             }
             )
-    }, [user?.email])
+    }, [navigate, user?.email])
 
 
 
     const handleDeleteditems = (id) => {
-        // console.log(email, "id")
+        console.log(id)
         const proceed = window.confirm("Are you sure for delete")
         if (proceed) {
-            const url = `http://localhost:5000/order/${user?.email}`
+            const url = `https://evening-shelf-42427.herokuapp.com/order/${id}`
+
             fetch(url, {
                 method: "DELETE",
             })
@@ -50,7 +51,6 @@ const MyOrder = () => {
                 .then(data => {
 
                     console.log(data)
-
                     const remaining = orders.filter(order => order._id !== id)
                     console.log(remaining)
                     setOtders(remaining)
@@ -64,8 +64,8 @@ const MyOrder = () => {
         <div>
             <h2>My Orders</h2>
             <div>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -80,14 +80,14 @@ const MyOrder = () => {
                         <tbody>
                             {
                                 orders?.map(order =>
-                                    <tr>
+                                    <tr key={order._id}>
                                         <th>{order?.displayname}</th>
                                         <td>{order?.pdName}</td>
                                         <td><img width="50px" src={order?.img} alt="" /></td>
                                         <td>{order?.quantity}</td>
                                         <td>{order?.pdName}</td>
-                                        <td><button class="btn btn-primary">Pay</button></td>
-                                        <td><button onClick={() => handleDeleteditems(order?._id)} class="btn btn-sm">Delete</button></td>
+                                        <td><button className="btn btn-primary">Pay</button></td>
+                                        <td><button onClick={() => handleDeleteditems(order?._id)} className="btn btn-sm">Delete</button></td>
                                     </tr>
                                 )
                             }

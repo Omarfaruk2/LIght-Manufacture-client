@@ -7,9 +7,7 @@ const SingleTool = ({ tool }) => {
     const { name, description, price, img, availableQuantity, minQuantity, _id } = tool
 
     const handleOrder = (id) => {
-        // console.log(id, "id paisi")
         navigate(`/tool/${id}`)
-
     }
 
     return (

@@ -18,9 +18,11 @@ import Home from './Pages/Home/Home'
 // import Review from './Pages/Home/Review'
 import ToolsDetails from './Pages/Home/ToolsDetails'
 import Login from './Pages/Login/Login'
+import RequareAdmin from './Pages/Login/RequareAdmin'
 import RequireAuth from './Pages/Login/RequireAuth'
 import Signin from './Pages/Login/Signin'
 import Notfound from './Pages/Notfound/Notfound'
+import Protfolio from './Pages/Protfolio/Protfolio'
 import Footer from './Pages/Share/Footer'
 // import Footer from './Pages/Share/Footer'
 import Navbar from './Pages/Share/Navbar'
@@ -35,6 +37,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/singup" element={<Signin />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/protfolio" element={<Protfolio />} />
 
 
         <Route path="/dashboard" element={
@@ -45,9 +48,19 @@ function App() {
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='review' element={<DashboardReview></DashboardReview>}></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='addProducts' element={<AddProducts></AddProducts>}></Route>
-          <Route path='manageProdcts' element={<ManageProducts></ManageProducts>}></Route>
-          <Route path='allusers' element={<User></User>}></Route>
+
+          <Route path='addProducts' element={
+
+            <RequareAdmin> <AddProducts></AddProducts></RequareAdmin>
+
+          }></Route>
+
+          <Route path='manageProdcts' element={
+            <RequareAdmin><ManageProducts></ManageProducts></RequareAdmin>
+          }></Route>
+          <Route path='allusers' element={
+            <RequareAdmin><User></User></RequareAdmin>
+          }></Route>
         </Route>
 
         <Route path="/tool/:id" element={
