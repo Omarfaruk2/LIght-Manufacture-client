@@ -46,7 +46,18 @@ On the Add A Review page, users should be able to add a review. A review will co
 
 The My profile route will be available for every user (admin or non-admin. everyone will see this link). The user will see their name and email address on this profile in this link. Also, this page will have fields to add fields like education, location (city/district), phone number, LinkedIn profile link, etc. And users will be able to save this information in the database. Also, the user will be able to update this information.
 
-If an admin logs in, they will not see the options that a user sees except My Profile. This means an admin will not see my orders and add a review link. Instead, an admin will see My Profile, Manage All Orders, Add A Product, Make Admin, Manage Products. Based on your website idea, you can change the name of these menu names. Manage products will be described in the bonus section.
+If an admin logs in, they will not see the options that a user sees except My Profile. This means an admin will not see 
+my orders 
+and add a review link.
+
+ Instead, an admin will see
+  My Profile,
+   Manage All Orders, 
+   Add A Product, 
+   Make Admin, 
+   Manage Products.
+   0
+    Based on your website idea, you can change the name of these menu names. Manage products will be described in the bonus section.
 
 An Admin should be able to make another user an admin. If an admin wants, they will be able to add a product on the add a product page. After adding the product, this product will appear on the home page. Please note, to add an image for a new product; you can just upload the image directly to the image hosting sites like imgbb, etc using API. Alternatively, you can have an input field to add the link to the image.
 

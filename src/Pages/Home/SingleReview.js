@@ -5,7 +5,7 @@ const SingleReview = ({ review }) => {
     if (!img) {
         review.img = photoURL
     }
-    console.log(rating)
+
     return (
         <div>
             <div className="card w-96 h-80 bg-primary text-primary-content mx-auto">

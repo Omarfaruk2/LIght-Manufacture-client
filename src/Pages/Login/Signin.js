@@ -7,12 +7,12 @@ import useToken from "../Hooks/UseToken"
 import Spiner from '../Share/Spiner'
 
 const Signin = () => {
-
+    const navigate = useNavigate()
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [updateProfile, updating, updateerror] = useUpdateProfile(auth)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     let SingINerroMessage
 
     const [token] = useToken(guser || user)
@@ -27,10 +27,16 @@ const Signin = () => {
         SingINerroMessage = <p className='text-red-500'>{error?.message || gerror?.message || updateerror?.message}</p>
     }
 
+    if (user) {
+        console.log("user ase")
+    }
+
 
     if (token) {
-        navigate("/")
+        navigate('/')
     }
+
+
 
     const onSubmit = async data => {
 

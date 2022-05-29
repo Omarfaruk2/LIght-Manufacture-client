@@ -4,6 +4,10 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import Spiner from '../Share/Spiner'
 import auth from "../../firebase.init"
 import { useForm } from "react-hook-form"
+// import useToken from '../Hooks/usetoken'
+import useToken from "../Hooks/UseToken"
+
+
 
 
 const Login = () => {
@@ -11,6 +15,8 @@ const Login = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
     const [signInWithEmailAndPassword, euser, eloading, eerror] = useSignInWithEmailAndPassword(auth)
     const { register, formState: { errors }, handleSubmit } = useForm()
+
+    const [token] = useToken(guser || euser)
 
     let SingINerroMessage
 
@@ -21,11 +27,11 @@ const Login = () => {
 
 
     useEffect(() => {
-        if (guser || euser) {
+        if (token) {
             navigate(from, { replace: true })
         }
 
-    }, [euser, from, guser, navigate])
+    }, [from, navigate, token])
 
 
     if (eloading || gloading) {

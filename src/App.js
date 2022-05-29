@@ -10,6 +10,7 @@ import ExtraDshboard from './Pages/Dashboard/ExtraDshboard'
 import ManageProducts from './Pages/Dashboard/ManageProducts'
 import MyOrder from './Pages/Dashboard/MyOrder'
 import MyProfile from './Pages/Dashboard/MyProfile'
+import User from './Pages/Dashboard/User'
 // import UpdateProfile from './Pages/Dashboard/UpdateProfile'
 
 
@@ -30,6 +31,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/singup" element={<Signin />} />
         <Route path="/blogs" element={<Blogs />} />
@@ -45,6 +47,7 @@ function App() {
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
           <Route path='addProducts' element={<AddProducts></AddProducts>}></Route>
           <Route path='manageProdcts' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='allusers' element={<User></User>}></Route>
         </Route>
 
         <Route path="/tool/:id" element={

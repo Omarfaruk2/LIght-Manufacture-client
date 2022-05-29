@@ -16,6 +16,7 @@ const Navbar = () => {
 
     const logout = () => {
         signOut(auth)
+        localStorage.removeItem("accessToken")
 
     }
     const menuItems =
@@ -26,18 +27,7 @@ const Navbar = () => {
                 user && <li><Link to="/dashboard">Dashboard</Link></li>
             }
 
-
             <li><Link to="/blogs">Blogs</Link></li>
-
-            {/* <li><Link to="/appoinment">Appoinment</Link></li>
-            <li><Link to="/review">Reviews</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>  */}
-
-            {/* {
-                user && <li><Link to="/dashboard">Dashboard</Link></li>
-
-            } */}
-
             <li>
                 {user ?
                     <button onClick={logout}

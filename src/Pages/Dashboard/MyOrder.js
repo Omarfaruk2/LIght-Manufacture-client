@@ -1,18 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
+import { useNavigate } from "react-router-dom"
+import { signOut } from 'firebase/auth'
 
 const MyOrder = () => {
 
     const [user] = useAuthState(auth)
     const [orders, setOtders] = useState([])
+    let navigate = useNavigate()
+
     useEffect(() => {
 
-        fetch(`http://localhost:5000/order/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setOtders(data))
+        fetch(`http://localhost:5000/order/${user?.email}`, {
+            method: "GET",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        })
+            .then(res => {
+                console.log("res", res)
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth)
+                    localStorage.removeItem("accessToken")
+
+                    navigate("/home")
+                }
+
+                return res.json()
+            })
+            .then(data => {
+
+                setOtders(data)
+            }
+            )
     }, [user?.email])
-    // console.log(orders)
+
 
 
     const handleDeleteditems = (id) => {
@@ -25,7 +48,9 @@ const MyOrder = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+
                     console.log(data)
+
                     const remaining = orders.filter(order => order._id !== id)
                     console.log(remaining)
                     setOtders(remaining)
@@ -56,7 +81,7 @@ const MyOrder = () => {
                             {
                                 orders?.map(order =>
                                     <tr>
-                                        <th>{order.displayname}</th>
+                                        <th>{order?.displayname}</th>
                                         <td>{order?.pdName}</td>
                                         <td><img width="50px" src={order?.img} alt="" /></td>
                                         <td>{order?.quantity}</td>
