@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
+import useToken from "../Hooks/UseToken"
 import Spiner from '../Share/Spiner'
 
 const Signin = () => {
@@ -11,22 +12,23 @@ const Signin = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [updateProfile, updating, updateerror] = useUpdateProfile(auth)
-
     const navigate = useNavigate()
-
     let SingINerroMessage
+
+    const [token] = useToken(guser || user)
+
+
 
 
     if (loading || gloading || updating) {
         return <Spiner></Spiner>
     }
-
     if (error || gerror || updateerror) {
         SingINerroMessage = <p className='text-red-500'>{error?.message || gerror?.message || updateerror?.message}</p>
     }
 
 
-    if (guser || user) {
+    if (token) {
         navigate("/")
     }
 
