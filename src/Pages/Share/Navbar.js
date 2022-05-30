@@ -49,7 +49,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-primary">
+        <div data-aos="fade-down" data-aos-duration="2000" className="navbar bg-primary">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-accent lg:hidden">

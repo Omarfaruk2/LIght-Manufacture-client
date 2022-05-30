@@ -12,7 +12,7 @@ const SingleTool = ({ tool }) => {
 
     return (
         <div className='my-4'>
-            <div className="card lg:max-width:md bg-base-100 shadow-xl">
+            <div data-aos="zoom-in" data-aos-duration="2000" className="card lg:max-width:md bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>
