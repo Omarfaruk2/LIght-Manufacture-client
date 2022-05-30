@@ -10,6 +10,7 @@ const Tools = () => {
 
     return (
         <div className=''>
+            <h2 className='text-5xl text-center font-bold text-primary my-6'>Our Light Collections</h2>
             <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 bg-base-300 mx-auto pb-7'>
 
                 {
