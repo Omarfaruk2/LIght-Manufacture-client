@@ -10,6 +10,7 @@ import ExtraDshboard from './Pages/Dashboard/ExtraDshboard'
 import ManageProducts from './Pages/Dashboard/ManageProducts'
 import MyOrder from './Pages/Dashboard/MyOrder'
 import MyProfile from './Pages/Dashboard/MyProfile'
+import Payment from './Pages/Dashboard/Payment'
 import User from './Pages/Dashboard/User'
 // import UpdateProfile from './Pages/Dashboard/UpdateProfile'
 
@@ -46,6 +47,7 @@ function App() {
           <Route index element={<ExtraDshboard></ExtraDshboard>}></Route>
 
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='review' element={<DashboardReview></DashboardReview>}></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
 

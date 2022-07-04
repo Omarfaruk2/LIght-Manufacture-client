@@ -12,10 +12,7 @@ const ToolsDetails = () => {
     const { id } = useParams()
     const [user, loading] = useAuthState(auth)
 
-
-
     useEffect(() => {
-
         const url = `https://evening-shelf-42427.herokuapp.com/tool/${id}`
 
         fetch(url)
@@ -23,12 +20,20 @@ const ToolsDetails = () => {
             .then(data => setDetails(data))
     }, [id])
 
-    const { name, img, availableQuantity, minQuantity, price, description } = Details
+
 
 
     if (loading) {
         return <Spiner></Spiner>
     }
+
+    const { name, img, availableQuantity, minQuantity, price, description } = Details
+
+    // const handlePriceChange = (e) => {
+    //     const quantitytiti = e.target.value
+    //     // const totalPrice = price * quantity
+
+    // }
 
     const handlePurches = (event) => {
         event.preventDefault()
@@ -37,6 +42,7 @@ const ToolsDetails = () => {
         const address = event.target.address.value
         const phone = event.target.phone.value
         const quantity = event.target.quantity.value
+        const price = event.target.price.value
 
         console.log(quantity - minQuantity, availableQuantity)
 
@@ -49,6 +55,7 @@ const ToolsDetails = () => {
         //     return toast.error("Your Quantity is less or higher then avilable")
         // }
 
+        console.log(price, "taka")
 
         const data = {
             pdName: name,
@@ -57,9 +64,9 @@ const ToolsDetails = () => {
             address: address,
             phone: phone,
             quantity: quantity,
-            img: img
+            img: img,
+            price: price
         }
-
 
 
         fetch("https://evening-shelf-42427.herokuapp.com/order", {
@@ -78,6 +85,8 @@ const ToolsDetails = () => {
         event.target.address.value = ""
         event.target.phone.value = ""
         event.target.quantity.value = ""
+        event.target.price.value = ""
+
 
     }
 
@@ -127,6 +136,14 @@ const ToolsDetails = () => {
                                         <span className="label-text">Quantiry</span>
                                     </label>
                                     <input type="number" name='quantity' placeholder="Your Quantity" required className="input input-bordered" />
+                                </div>
+
+                                {/* Your Price */}
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Total Price</span>
+                                    </label>
+                                    <input type="number" name='price' value={price} readOnly placeholder="Your Quantity" required className="input input-bordered" />
                                 </div>
 
                                 <div className="form-control mt-6">

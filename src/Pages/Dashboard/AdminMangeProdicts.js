@@ -1,9 +1,10 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 const AdminMangeProdicts = ({ tool, setTools, tools }) => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
+
     const { name, description, price, img, availableQuantity, minQuantity, _id } = tool
 
 
@@ -12,6 +13,7 @@ const AdminMangeProdicts = ({ tool, setTools, tools }) => {
 
         const proceed = window.confirm("Are you sure for delete")
         if (proceed) {
+
             const url = `https://evening-shelf-42427.herokuapp.com/tool/${id}`
             fetch(url, {
                 method: "DELETE",
@@ -25,6 +27,7 @@ const AdminMangeProdicts = ({ tool, setTools, tools }) => {
 
                 })
         }
+
 
     }
 

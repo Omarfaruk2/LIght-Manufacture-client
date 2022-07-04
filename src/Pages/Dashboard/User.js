@@ -42,6 +42,8 @@ const User = () => {
                     <tbody>
                         {
                             users?.map(user => <UserRow
+                                setUser={setUser}
+                                users={users}
                                 key={user?._id}
                                 user={user}
                             >

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { signOut } from 'firebase/auth'
 
 const MyOrder = () => {
@@ -86,7 +86,11 @@ const MyOrder = () => {
                                         <td><img width="50px" src={order?.img} alt="" /></td>
                                         <td>{order?.quantity}</td>
                                         <td>{order?.pdName}</td>
-                                        <td><button className="btn btn-primary">Pay</button></td>
+                                        {/* <td><button className="btn btn-primary">Pay</button></td> */}
+                                        <td>
+                                            {(order?.price && !order.paid) && <Link to={`/dashboard/payment/${order?._id}`}><button className="btn btn-primary">Pay</button></Link>}
+                                            {(order?.price && order.paid) && <span className="text-green-600">Paid</span>}
+                                        </td>
                                         <td><button onClick={() => handleDeleteditems(order?._id)} className="btn btn-sm">Delete</button></td>
                                     </tr>
                                 )
